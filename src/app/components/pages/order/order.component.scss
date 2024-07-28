@@ -1,0 +1,40 @@
+.ng-dirty.ng-invalid,
+.ng-touched.ng-invalid {
+    border-color: red !important;
+
+    &+label {
+        color: red;
+    }
+}
+
+.orderForm {
+    position: relative;
+    textarea {
+        resize: none;
+        aspect-ratio: 8/2;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .orderForm {
+        textarea {
+            resize: none;
+            aspect-ratio: 4/2;
+        }
+    }
+}
+
+.success-message {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    font-size: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

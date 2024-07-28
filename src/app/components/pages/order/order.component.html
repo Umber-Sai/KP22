@@ -1,0 +1,100 @@
+<section class="container my-5 wow pulse">
+    <h2 class="text-center my-5 fs-3 fw-bold" id="order-text">Сделать заказ</h2>
+
+    <form style="max-width: 636px;" class="mx-auto text-center orderForm" [formGroup]="orderForm">
+        <div class="mb-3 col-md-5 mx-auto">
+            <label for="name" class="form-label">Товар</label>
+            <input type="text"  class="form-control border-secondary" id="product" formControlName="product" >
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4 col-sm-6">
+                <label for="name" class="form-label" [class]="{'text-danger' : orderForm.get('name')?.invalid && (orderForm.get('name')?.dirty || orderForm.get('name')?.touched)}">Имя</label>
+                <input type="text" class="form-control border-secondary" id="name" formControlName="name">
+                <div class="text-danger" *ngIf="orderForm.get('name')?.invalid && (orderForm.get('name')?.dirty || orderForm.get('name')?.touched)">
+                    <div *ngIf="orderForm.get('name')?.errors?.['required']">
+                        Имя должно быть указано
+                    </div>
+                    <div *ngIf="orderForm.get('name')?.errors?.['pattern']">
+                        Можно вводить только буквы
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-4 col-sm-6">
+                <label for="last-name" class="form-label" [class]="{'text-danger' : orderForm.get('lastName')?.invalid && (orderForm.get('lastName')?.dirty || orderForm.get('lastName')?.touched)}">Фамилия</label>
+                <input type="text" class="form-control border-secondary" id="last-name" formControlName="lastName">
+                <div class="text-danger" *ngIf="orderForm.get('lastName')?.invalid && (orderForm.get('lastName')?.dirty || orderForm.get('lastName')?.touched)">
+                    <div *ngIf="orderForm.get('lastName')?.errors?.['required']">
+                        Фамилия должна быть указана
+                    </div>
+                    <div *ngIf="orderForm.get('lastName')?.errors?.['pattern']">
+                        Можно вводить только буквы {{orderForm.get('lastName')?.errors?.['pattern'].actualValue}}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-4">
+                <label for="phone" class="form-label" [class]="{'text-danger' : orderForm.get('tel')?.invalid && (orderForm.get('tel')?.dirty || orderForm.get('tel')?.touched)}">Телефон</label>
+                <input type="text" class="form-control border-secondary" id="phone" formControlName="tel">
+                <div class="text-danger" *ngIf="orderForm.get('tel')?.invalid && (orderForm.get('tel')?.dirty || orderForm.get('tel')?.touched)">
+                    <div *ngIf="orderForm.get('tel')?.errors?.['required']">
+                        Телефон должн быть указан
+                    </div>
+                    <div *ngIf="orderForm.get('tel')?.errors?.['tel']">
+                        {{orderForm.get('tel')?.errors?.['tel']}}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-6 col-sm-8">
+                <label for="country" class="form-label" [class]="{'text-danger' : orderForm.get('country')?.invalid && (orderForm.get('country')?.dirty || orderForm.get('country')?.touched)}">Страна</label>
+                <input type="text" class="form-control border-secondary" id="country" formControlName="country">
+                <div class="text-danger" *ngIf="orderForm.get('country')?.invalid && (orderForm.get('country')?.dirty || orderForm.get('country')?.touched)">
+                    <div *ngIf="orderForm.get('country')?.errors?.['required']">
+                        Страна должна быть указана
+                    </div>
+                    <div *ngIf="orderForm.get('country')?.errors?.['pattern']">
+                        Только буквы
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-6 col-sm-4">
+                <label for="index" class="form-label" [class]="{'text-danger' : orderForm.get('index')?.invalid && (orderForm.get('index')?.dirty || orderForm.get('index')?.touched)}">Индекс</label>
+                <input type="text" class="form-control border-secondary" id="index" formControlName="index">
+                <div class="text-danger" *ngIf="orderForm.get('index')?.invalid && (orderForm.get('index')?.dirty || orderForm.get('index')?.touched)">
+                    <div *ngIf="orderForm.get('index')?.errors?.['required']">
+                        Индекс должн быть указан
+                    </div>
+                    <div *ngIf="orderForm.get('index')?.errors?.['pattern']">
+                        Только цифры
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4 col-md-12">
+                <label for="address" class="form-label" [class]="{'text-danger' : orderForm.get('address')?.invalid && (orderForm.get('address')?.dirty || orderForm.get('address')?.touched)}">Адрес</label>
+                <input type="text" class="form-control border-secondary" id="address" formControlName="address">
+                <div class="text-danger" *ngIf="orderForm.get('address')?.invalid && (orderForm.get('address')?.dirty || orderForm.get('address')?.touched)">
+                    <div *ngIf="orderForm.get('address')?.errors?.['required']">
+                        Аддресс должн быть указан
+                    </div>
+                    <div *ngIf="orderForm.get('address')?.errors?.['pattern']">
+                        можно вводить: буквы, цифры, пробелы, дефис и слеш
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4 col-md-12">
+                <label for="address" class="form-label">Комментарий к заказу</label>
+                 <textarea name="" class="form-control border-secondary" id="comment" formControlName="comment"></textarea>
+            </div>
+        </div>
+        
+        <button type="submit" id="submit-btn" class="btn btn-primary px-5" (click)="sendOrder()" [disabled]="orderForm.invalid || popupStatus">Отправить</button>
+        <div class="text-danger" *ngIf="errorMsgStatus">
+            Произошла ошибка. Попробуйте еще раз.
+        </div>
+        <div class="loader-container" *ngIf="popupStatus">
+            <div class="loader"></div>
+        </div>
+        <div class="success-message" *ngIf="successMsgStatus">
+            Спасибо за заказ!
+        </div>
+      </form>
+</section>
+

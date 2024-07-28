@@ -1,0 +1,15 @@
+<div class="container ">
+    <div class="info row d-flex align-items-center justify-content-center mt-5">
+        <picture class="col-sm-12 col-md-6" style="max-width: 300px;">
+            <img src="{{product.image}}" class="card-img-top" alt="tea">
+        </picture>
+        <div class="col-sm-12 col-md-6 text-center text-md-start" style="width: max-content">
+            <h3 class="title">{{product.title}}</h3>
+            <div class="d-flex flex-row align-items-center justify-content-start">
+                <a href="#" class="btn btn-primary px-4 " [routerLink]="['/order', product.title]" >Купить</a>
+                <h4 class="mb-0 cost ms-3" style="width: 100px">{{product.price}}₽</h4>
+            </div>
+        </div>
+    </div>
+    <p class="text m-5 text-center">{{product.description}}</p>
+</div>

@@ -1,0 +1,12 @@
+<div class=" d-flex justify-content-center flex-shrink-1" style="min-width: 250px; width: 300px; flex: 1 1 50px;">
+    <div class="card" style="width: 100%;">
+        <a class="popup-link" href="img/collection/image 2-2.png">
+            <img src="{{product.image}}" class="card-img-top" alt="tea">
+        </a>
+        <div class="card-body text-center">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">{{product.description | shortText}}</p>
+            <a href="#" class="btn btn-primary px-4" [routerLink]="['/products', product.id]">Подробнее</a>
+        </div>
+    </div>
+</div>
