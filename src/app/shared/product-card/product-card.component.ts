@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductType } from 'src/app/type/product.type';
+import { ProductType } from 'src/type/product.type';
 
 @Component({
   selector: 'product-card',

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription, observable } from 'rxjs';
-import { CommonService } from 'src/app/servises/common.service';
+import { Subscription } from 'rxjs';
+import { CommonService } from 'src/app/shared/servises/common.service';
 
 @Component({
   selector: 'app-main',

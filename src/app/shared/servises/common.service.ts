@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ProductType } from '../type/product.type';
-import { BodyType, ResponceType } from '../type/response.type';
+import { ProductType } from '../../../type/product.type';
+import { BodyType, ResponceType } from '../../../type/response.type';
 
 @Injectable({
   providedIn: 'root'

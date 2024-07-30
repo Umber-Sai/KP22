@@ -81,3 +81,5 @@ app-root {
     0%,30%   { transform:translateY(0); }
     80%,100% { transform:translateY(-260%); }
   }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

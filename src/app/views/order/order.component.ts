@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CustomValidators } from 'src/app/common/custom-validators';
-import { CommonService } from 'src/app/servises/common.service';
-import { BodyType } from 'src/app/type/response.type';
+
+import { CommonService } from 'src/app/shared/servises/common.service';
+import { CustomValidators } from 'src/app/shared/validators/custom-validators';
+
 
 @Component({
   selector: 'app-order',
@@ -47,8 +48,6 @@ export class OrderComponent implements OnInit {
   sendOrder() {
     this.popupStatus = true;
     this.errorMsgStatus = false;
-    console.log(this.orderForm)
-    console.log(this.orderForm.value);
     if (!this.orderForm.valid) return;
     const body = {
       name: this.orderForm.get('name')?.value,

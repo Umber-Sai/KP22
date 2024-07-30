@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { CommonService } from 'src/app/servises/common.service';
-import { ProductType } from 'src/app/type/product.type';
+import { CommonService } from 'src/app/shared/servises/common.service';
+import { ProductType } from 'src/type/product.type';
 
 @Component({
   selector: 'app-product',

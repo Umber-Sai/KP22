@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CommonService } from 'src/app/servises/common.service';
+import { CommonService } from 'src/app/shared/servises/common.service';
 
 @Component({
   selector: 'app-header',
